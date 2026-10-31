@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vejconaut | Domácí vejce</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .antenna-blink {
+            animation: blink 1.2s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 0.3; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body class="bg-[#FAF7F2] text-stone-800 min-h-screen font-sans flex flex-col items-center pt-8 pb-16 px-4">
+
+    <!-- Horní část s logem a popisem -->
+    <header class="text-center max-w-xl mx-auto mb-8">
+        
+        <!-- Přepracované detailní Farmářské Apollo SVG -->
+        <div class="flex justify-center mb-4">
+            <svg viewBox="0 0 320 320" class="w-64 h-64 drop-shadow-md">
+                <defs>
+                    <!-- Stín pod modulem -->
+                    <radialGradient id="shadowGrad" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#78716c" stop-opacity="0.35"/>
+                        <stop offset="100%" stop-color="#78716c" stop-opacity="0"/>
+                    </radialGradient>
+                    <!-- Přechod pro vajíčko -->
+                    <radialGradient id="eggGrad" cx="35%" cy="30%" r="65%">
+                        <stop offset="0%" stop-color="#ffffff"/>
+                        <stop offset="25%" stop-color="#f6d5b0"/>
+                        <stop offset="75%" stop-color="#e0a96d"/>
+                        <stop offset="100%" stop-color="#b87a3e"/>
+                    </radialGradient>
+                    <!-- Přechod pro kovový modul -->
+                    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#f1f5f9"/>
+                        <stop offset="50%" stop-color="#cbd5e1"/>
+                        <stop offset="100%" stop-color="#94a3b8"/>
+                    </linearGradient>
+                </defs>
+
+                <!-- Vržený stín na zemi -->
+                <ellipse cx="160" cy="285" rx="95" ry="14" fill="url(#shadowGrad)"/>
+
+                <!-- Přistávací nohy lunárního modulu -->
+                <!-- Levá noha -->
+                <line x1="110" y1="210" x2="75" y2="265" stroke="#475569" stroke-width="7" stroke-linecap="round"/>
+                <line x1="85" y1="240" x2="115" y2="225" stroke="#64748b" stroke-width="4"/>
+                <ellipse cx="73" cy="268" rx="14" ry="5" fill="#334155"/>
+                
+                <!-- Pravá noha -->
+                <line x1="210" y1="210" x2="245" y2="265" stroke="#475569" stroke-width="7" stroke-linecap="round"/>
+                <line x1="235" y1="240" x2="205" y2="225" stroke="#64748b" stroke-width="4"/>
+                <ellipse cx="247" cy="268" rx="14" ry="5" fill="#334155"/>
+
+                <!-- Prostřední noha -->
+                <line x1="160" y1="220" x2="160" y2="272" stroke="#475569" stroke-width="7" stroke-linecap="round"/>
+                <ellipse cx="160" cy="275" rx="15" ry="5" fill="#334155"/>
+
+                <!-- Kovová podstava modulu -->
+                <path d="M 95,195 L 225,195 L 205,230 L 115,230 Z" fill="url(#metalGrad)" stroke="#334155" stroke-width="3" stroke-linejoin="round"/>
+                
+                <!-- Nýty na kovové základně -->
+                <circle cx="120" cy="205" r="2" fill="#334155"/>
+                <circle cx="140" cy="207" r="2" fill="#334155"/>
+                <circle cx="160" cy="208" r="2" fill="#334155"/>
+                <circle cx="180" cy="207" r="2" fill="#334155"/>
+                <circle cx="200" cy="205" r="2" fill="#334155"/>
+
+                <!-- Anténa vlevo -->
+                <line x1="115" y1="175" x2="95" y2="105" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="95" cy="105" r="6" fill="#ea580c" class="antenna-blink"/>
+                <path d="M 88,96 A 12 12 0 0 1 102,96" stroke="#ea580c" stroke-width="2" fill="none" class="antenna-blink"/>
+
+                <!-- Vajíčko -->
+                <path d="M 160,52 C 195,52 222,95 222,148 C 222,190 195,205 160,205 C 125,205 98,190 98,148 C 98,95 125,52 160,52 Z" 
+                      fill="url(#eggGrad)" stroke="#292524" stroke-width="3"/>
+                <!-- Odlesk na vejci -->
+                <ellipse cx="140" cy="90" rx="8" ry="16" fill="#ffffff" opacity="0.6" transform="rotate(-18 140 90)"/>
+
+                <!-- Kosmonautský Headset -->
+                <path d="M 160,56 C 190,56 210,80 212,115" fill="none" stroke="#1e293b" stroke-width="4" stroke-linecap="round"/>
+                <!-- Sluchátko -->
+                <rect x="204" y="105" width="14" height="24" rx="7" fill="#334155" stroke="#0f172a" stroke-width="2.5"/>
+                <rect x="207" y="110" width="4" height="14" rx="2" fill="#94a3b8"/>
+                <!-- Ramínko s mikrofonem -->
+                <path d="M 210,125 Q 200,152 176,150" fill="none" stroke="#1e293b" stroke-width="3.5" stroke-linecap="round"/>
+                <circle cx="174" cy="150" r="4.5" fill="#0f172a"/>
+
+                <!-- Bohaté vrstvené slaměné hnízdo -->
+                <!-- Spodní tmavá vrstva -->
+                <path d="M 75,178 Q 160,215 245,178 Q 230,160 160,165 Q 90,160 75,178 Z" fill="#92400e" stroke="#292524" stroke-width="3"/>
+                <!-- Hlavní zlatá sláma s trsy -->
+                <path d="M 72,175 C 68,160 85,150 95,158 C 110,145 130,155 145,150 C 165,145 185,152 205,148 C 225,145 248,155 248,172 C 255,188 238,205 220,205 C 190,215 130,215 100,205 C 80,200 68,190 72,175 Z" 
+                      fill="#eab308" stroke="#292524" stroke-width="3"/>
+                <!-- Jednotlivá stébla pro texturu -->
+                <path d="M 78,165 Q 65,155 60,168" stroke="#292524" stroke-width="2.5" fill="none"/>
+                <path d="M 85,180 Q 70,185 66,198" stroke="#292524" stroke-width="2.5" fill="none"/>
+                <path d="M 110,195 Q 120,215 135,212" stroke="#ca8a04" stroke-width="2.5" fill="none"/>
+                <path d="M 150,198 Q 165,218 180,210" stroke="#ca8a04" stroke-width="2.5" fill="none"/>
+                <path d="M 235,170 Q 255,160 262,175" stroke="#292524" stroke-width="2.5" fill="none"/>
+                <path d="M 230,188 Q 248,195 252,208" stroke="#292524" stroke-width="2.5" fill="none"/>
+                <!-- Vnitřní prosvětlená stébla -->
+                <path d="M 105,172 Q 130,185 160,182 Q 190,185 215,172" stroke="#fef08a" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </svg>
+        </div>
+
+        <h1 class="text-4xl font-extrabold text-stone-900 tracking-tight mb-2">
+            VEJCONAUT
+        </h1>
+        <p class="text-stone-600 text-lg">Čerstvá domácí vejce s řízeným přistáním na vašem stole</p>
+        
+        <!-- Páska se slevou -->
+        <div class="mt-4 inline-block bg-white border border-stone-200 shadow-sm rounded-xl px-5 py-3">
+            <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded mr-2">MÍSTNÍ SLEVA</span>
+            <span class="text-stone-700">Žďárná a Suchý: <strong class="text-emerald-700 font-bold">5 Kč / ks</strong></span>
+            <span class="text-stone-400 mx-2">|</span>
+            <span class="text-stone-500">Ostatní: 8 Kč / ks</span>
+        </div>
+    </header>
+
+    <!-- Formulář objednávky -->
+    <main class="w-full max-w-md bg-white border border-stone-200 rounded-2xl p-7 shadow-sm">
+        <h2 class="text-xl font-bold text-stone-900 mb-5 text-center">Formulář objednávky</h2>
+        
+        <form id="orderForm" class="space-y-4">
+            <div>
+                <label for="name" class="block text-sm font-semibold text-stone-700 mb-1">Jméno a příjmení</label>
+                <input type="text" id="name" required
+                    class="w-full bg-stone-50 border border-stone-300 rounded-lg px-3.5 py-2.5 text-stone-800 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-600"
+                    placeholder="Např. Petr Novák">
+            </div>
+
+            <div>
+                <label for="location" class="block text-sm font-semibold text-stone-700 mb-1">Lokalita doručení</label>
+                <select id="location" required
+                    class="w-full bg-stone-50 border border-stone-300 rounded-lg px-3.5 py-2.5 text-stone-800 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-600">
+                    <option value="" disabled selected>Zvolte obec...</option>
+                    <option value="zdarna">Obec Žďárná (5 Kč / ks)</option>
+                    <option value="suchy">Obec Suchý (5 Kč / ks)</option>
+                    <option value="other">Ostatní obce (8 Kč / ks)</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="amount" class="block text-sm font-semibold text-stone-700 mb-1">Počet vajec</label>
+                <div class="relative">
+                    <input type="number" id="amount" min="1" max="200" required value="10"
+                        class="w-full bg-stone-50 border border-stone-300 rounded-lg px-3.5 py-2.5 text-stone-800 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-600">
+                    <span class="absolute right-3.5 top-2.5 text-stone-400 font-medium">ks</span>
+                </div>
+            </div>
+
+            <!-- Souhrn ceny -->
+            <div class="bg-amber-50/70 border border-amber-200 rounded-xl p-4 flex justify-between items-center mt-5">
+                <div>
+                    <span class="text-xs text-amber-900 font-medium uppercase tracking-wide">Cena za kus: </span>
+                    <span id="pricePerPiece" class="font-bold text-amber-950">? Kč</span>
+                    <div class="text-sm font-semibold text-stone-700 mt-0.5">Celková částka:</div>
+                </div>
+                <div class="text-2xl font-black text-amber-900" id="totalPrice">
+                    0 Kč
+                </div>
+            </div>
+
+            <button type="submit" 
+                class="w-full mt-4 bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-colors">
+                Potvrdit objednávku
+            </button>
+        </form>
+    </main>
+
+    <!-- Úspěšné odeslání (Dialog) -->
+    <div id="modal" class="fixed inset-0 bg-stone-900/40 backdrop-blur-xs hidden flex items-center justify-center px-4">
+        <div class="bg-white rounded-2xl p-6 max-w-xs w-full text-center shadow-lg border border-stone-200">
+            <div class="text-4xl mb-3">🥚</div>
+            <h3 class="text-lg font-bold text-stone-900 mb-1">Objednávka přijata</h3>
+            <p class="text-stone-600 text-sm mb-5">Děkujeme! Jakmile vajíčka nachystáme, dáme vám vědět.</p>
+            <button onclick="document.getElementById('modal').classList.add('hidden')"
+                class="w-full bg-stone-800 hover:bg-stone-900 text-white text-sm font-semibold py-2.5 rounded-lg transition-colors">
+                Zavřít
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const loc = document.getElementById('location');
+        const amount = document.getElementById('amount');
+        const perPiece = document.getElementById('pricePerPiece');
+        const total = document.getElementById('totalPrice');
+        const form = document.getElementById('orderForm');
+        const modal = document.getElementById('modal');
+
+        function recalculate() {
+            const val = loc.value;
+            const count = parseInt(amount.value) || 0;
+            let price = 0;
+
+            if (val === 'zdarna' || val === 'suchy') price = 5;
+            else if (val === 'other') price = 8;
+
+            if (price > 0) {
+                perPiece.innerText = price + ' Kč';
+                total.innerText = (count * price) + ' Kč';
+            } else {
+                perPiece.innerText = '? Kč';
+                total.innerText = '0 Kč';
+            }
+        }
+
+        loc.addEventListener('change', recalculate);
+        amount.addEventListener('input', recalculate);
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            modal.classList.remove('hidden');
+            form.reset();
+            recalculate();
+        });
+    </script>
+</body>
+</html>
